@@ -19,3 +19,16 @@ class Pet(db.Model):
 
     def __repr__(self):
         return f'<Pet {self.id}, {self.name}, {self.species}>'
+    
+class Pet(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
+    species = db.Column(db.String, nullable=False)
+
+    def as_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'species': self.species
+        }
+
